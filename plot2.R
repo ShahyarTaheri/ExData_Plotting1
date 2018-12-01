@@ -19,8 +19,8 @@ data = data[(data$Date == "1/2/2007") | (data$Date == "2/2/2007"), ]
 data$newTime= as.POSIXct(paste(data$Date, data$Time), format="%d/%m/%Y %H:%M:%S")
 
 # Plot
+png(filename = "plot2.png",width = 480, height = 480)
 with(data, plot(newTime, Global_active_power, type="l", xlab="", ylab="Global Active Power (kilowatts)"))
 
 # Save plot to png
-dev.copy(png, file = "./plot2.png", width = 480, height = 480)  ## Copy my plot to a PNG file
 dev.off()  ## Don't forget to close the PNG device!
